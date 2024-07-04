@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   google_fonts: ^6.2.1
   tmdb_api: ^2.2.0
+  flutter_launcher_icons: ^0.13.1
 
 
 dev_dependencies:
@@ -54,6 +55,11 @@ dev_dependencies:
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter packages.
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path : "asset/images/video-camera.png"
+  flutter_lints: ^4.0.0
 flutter:
 
   # The following line ensures that the Material Icons font is

@@ -148,25 +148,26 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
               child: ListView(
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.only(left: 12),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 12),
                     child: Text(
                       "Trending Movies",
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 14,
                         fontWeight: FontWeight.w400,
-                        color: Colors.grey,
+                        color: Colors.grey[200],
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: 275,
+                    height: 231,
                     child: ListView.builder(
                         scrollDirection: Axis.horizontal,
                         itemCount: trendingMovies.length,
                         itemBuilder: (context, index) {
                           return Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 7, vertical: 3),
                             child: InkWell(
                               onTap: () {
                                 Navigator.push(
@@ -181,7 +182,7 @@ class _HomePageState extends State<HomePage> {
                                 child: Column(
                                   children: [
                                     SizedBox(
-                                      height: 240,
+                                      height: 200,
                                       width: 160,
                                       child: Image.network(
                                         'https://image.tmdb.org/t/p/w500' +
@@ -202,19 +203,19 @@ class _HomePageState extends State<HomePage> {
                           );
                         }),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 12),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 12),
                     child: Text(
                       "Top Rated Movies",
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 14,
                         fontWeight: FontWeight.w400,
-                        color: Colors.grey,
+                        color: Colors.grey[200],
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: 160,
+                    height: 233,
                     //width: 300,
                     //color: Colors.black,
                     child: ListView.builder(
@@ -222,7 +223,8 @@ class _HomePageState extends State<HomePage> {
                         itemCount: topratedMovies.length,
                         itemBuilder: (context, index) {
                           return Padding(
-                            padding: const EdgeInsets.all(7),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 7, vertical: 3),
                             child: InkWell(
                               onTap: () {
                                 Navigator.push(
@@ -237,7 +239,7 @@ class _HomePageState extends State<HomePage> {
                                 child: Column(
                                   children: [
                                     SizedBox(
-                                      height: 131,
+                                      height: 200,
                                       width: 160,
                                       child: Image.network(
                                         'https://image.tmdb.org/t/p/w500' +
@@ -249,7 +251,7 @@ class _HomePageState extends State<HomePage> {
                                     Text(
                                       topratedMovies[index]['title'] ?? " ",
                                       style: const TextStyle(
-                                          color: Colors.grey, fontSize: 10),
+                                          color: Colors.grey, fontSize: 12),
                                     ),
                                   ],
                                 ),
