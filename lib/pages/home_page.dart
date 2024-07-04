@@ -149,7 +149,7 @@ class _HomePageState extends State<HomePage> {
               child: ListView(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 12),
+                    padding: const EdgeInsets.only(left: 7),
                     child: Text(
                       "Trending Movies",
                       style: TextStyle(
@@ -160,7 +160,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   SizedBox(
-                    height: 231,
+                    height: 223,
                     child: ListView.builder(
                         scrollDirection: Axis.horizontal,
                         itemCount: trendingMovies.length,
@@ -180,6 +180,7 @@ class _HomePageState extends State<HomePage> {
                               },
                               child: Container(
                                 child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     SizedBox(
                                       height: 200,
@@ -204,7 +205,7 @@ class _HomePageState extends State<HomePage> {
                         }),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 12),
+                    padding: const EdgeInsets.only(left: 7),
                     child: Text(
                       "Top Rated Movies",
                       style: TextStyle(
@@ -237,6 +238,7 @@ class _HomePageState extends State<HomePage> {
                               },
                               child: Container(
                                 child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     SizedBox(
                                       height: 200,
