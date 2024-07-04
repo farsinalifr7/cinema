@@ -119,17 +119,19 @@ class _HomePageState extends State<HomePage> {
                         ),
                         height: 40,
                         width: double.infinity,
-                        child: TextField(
-                          decoration: InputDecoration(
-                              border: InputBorder.none,
-                              prefixIcon: Icon(
-                                Icons.search,
-                                color: Colors.grey[100],
-                              ),
-                              hintStyle: TextStyle(
-                                color: Colors.grey[100],
-                              ),
-                              hintText: "Search for a movie"),
+                        child: Center(
+                          child: TextField(
+                            decoration: InputDecoration(
+                                border: InputBorder.none,
+                                prefixIcon: Icon(
+                                  Icons.search,
+                                  color: Colors.grey[100],
+                                ),
+                                hintStyle: TextStyle(
+                                  color: Colors.grey[100],
+                                ),
+                                hintText: "Search for a movie"),
+                          ),
                         ),
                       ),
                       const SizedBox(
@@ -182,7 +184,17 @@ class _HomePageState extends State<HomePage> {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    SizedBox(
+                                    Container(
+                                      decoration: const BoxDecoration(
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.black,
+                                            offset: Offset(4.0, 4.0),
+                                            blurRadius: 8.0,
+                                            spreadRadius: 1.0,
+                                          ),
+                                        ],
+                                      ),
                                       height: 200,
                                       width: 160,
                                       child: Image.network(
@@ -240,7 +252,17 @@ class _HomePageState extends State<HomePage> {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    SizedBox(
+                                    Container(
+                                      decoration: const BoxDecoration(
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.black,
+                                            offset: Offset(4.0, 4.0),
+                                            blurRadius: 8.0,
+                                            spreadRadius: 1.0,
+                                          ),
+                                        ],
+                                      ),
                                       height: 200,
                                       width: 160,
                                       child: Image.network(
