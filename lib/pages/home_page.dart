@@ -13,6 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  // List FilterList = [];
   List trendingMovies = [];
   List topratedMovies = [];
   List tvshows = [];
@@ -36,6 +37,7 @@ class _HomePageState extends State<HomePage> {
     Map topratedResult = await tmdbwithcustomlog.v3.movies.getTopRated();
     Map TvshowResult = await tmdbwithcustomlog.v3.tv.getPopular();
     setState(() {
+      //FilterList = trendingRusult['results'];
       trendingMovies = trendingRusult['results'];
       topratedMovies = topratedResult['results'];
       tvshows = TvshowResult['results'];
@@ -52,7 +54,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.black,
         leading: IconButton(
           onPressed: () {
-            Navigator.push(
+            Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
                   builder: (context) => const IntroPage(),
@@ -68,7 +70,7 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.only(right: 12.0),
             child: IconButton(
               onPressed: () {
-                Navigator.push(
+                Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                       builder: (context) => const IntroPage(),
@@ -121,6 +123,7 @@ class _HomePageState extends State<HomePage> {
                         width: double.infinity,
                         child: Center(
                           child: TextField(
+                            // onChanged: (value) => runFilter(value),
                             decoration: InputDecoration(
                                 border: InputBorder.none,
                                 prefixIcon: Icon(
@@ -283,7 +286,74 @@ class _HomePageState extends State<HomePage> {
                             ),
                           );
                         }),
-                  )
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 7),
+                    child: Text(
+                      "Top TV shows",
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.grey[200],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 233,
+                    //width: 300,
+                    //color: Colors.black,
+                    child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: tvshows.length,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 7, vertical: 3),
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => MovieTile(
+                                        movieInfo: tvshows[index],
+                                      ),
+                                    ));
+                              },
+                              child: Container(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      decoration: const BoxDecoration(
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.black,
+                                            offset: Offset(4.0, 4.0),
+                                            blurRadius: 8.0,
+                                            spreadRadius: 1.0,
+                                          ),
+                                        ],
+                                      ),
+                                      height: 200,
+                                      width: 160,
+                                      child: Image.network(
+                                        'https://image.tmdb.org/t/p/w500' +
+                                            tvshows[index]['poster_path'],
+                                        fit: BoxFit.fill,
+                                      ),
+                                    ),
+                                    Text(
+                                      tvshows[index]['original_name'] ?? " ",
+                                      style: const TextStyle(
+                                          color: Colors.grey, fontSize: 12),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          );
+                        }),
+                  ),
                 ],
               ),
             ),
@@ -292,4 +362,18 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+
+  // runFilter(String value) {
+  //   List result = [];
+  //   if (value.isEmpty) {
+  //     result = trendingMovies;
+  //   } else {
+  //     result = trendingMovies.where((element) {
+  //       return element.title.toLowerCase().contains(value.toLowerCase());
+  //     }).toList();
+  //   }
+  //   setState(() {
+  //     FilterList = result;
+  //   });
+  // }
 }

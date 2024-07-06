@@ -30,7 +30,7 @@ class MovieTile extends StatelessWidget {
                   bottom: 10,
                   left: 60,
                   child: Text(
-                    movieInfo['title'] ?? "",
+                    movieInfo['title'] ?? movieInfo['original_name'],
                     style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w500,
@@ -42,7 +42,7 @@ class MovieTile extends StatelessWidget {
                   left: 10,
                   child: IconButton(
                       onPressed: () {
-                        Navigator.push(
+                        Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                               builder: (context) => const HomePage()),
